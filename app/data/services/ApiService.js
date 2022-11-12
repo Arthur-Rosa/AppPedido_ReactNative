@@ -1,16 +1,27 @@
-const api = 'https://10.92.198.8:3002/api/apppedidos/';
+const url = 'http://localhost:3002/api/appPedidos';
 
 export const ApiService = {
     get(endpoint) {
-        return fetch(`${api}${endpoint}`).then((resp) => resp.json());
+        return fetch(`${url}${endpoint}`)
+            .then(Response => Response.json())
     },
+
     post(endpoint, data) {
-        return fetch(`${api}${endpoint}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data),
-        }).then((response) => response.json());
+        return fetch(`${url}${endpoint}`,
+            {
+                method: 'POST',
+                body: JSON.stringify(data)
+            })
+
+            .then(Response => Response.json())
+    },
+
+    delete(endpoint, data) {
+        return fetch(`${url}${endpoint}?id=${id}`, {
+            method: 'DELETE',
+            headers: { 'Content-type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+            .then(Response => Response.json())
     }
 }

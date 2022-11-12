@@ -10,29 +10,16 @@ const theme = {
     ...DefaultTheme,
     colors: {
         ...DefaultTheme.colors,
-        primary: 'black'
-    },
-};
-
-const theme2 = {
-    ...DefaultTheme,
-    colors: {
-        ...DefaultTheme.colors,
-        primary: 'red'
+        primary: '#E83D30',
+        secondary: '#F14933',
+        tertiary: '#FE5E37',
     },
 };
 
 export default function Main() {
-    const [value, setValue] = useState(1);
-
-    useEffect(() => {
-        setTimeout(() => {
-            setValue(2);
-        }, 3000)
-    });
 
     return (
-        <PaperProvider theme={value === 1 ? theme : theme2}>
+        <PaperProvider theme={theme}>
             <ProductProvider>
                 <CartProvider>
                     <App />
