@@ -1,11 +1,9 @@
-const url = 'http://localhost:3002/api/appPedidos';
+const url = 'http://10.92.198.8:3002/api/';
 
 export const ApiService = {
     get(endpoint) {
-        return fetch(`${url}${endpoint}`)
-            .then(Response => Response.json())
+        return fetch(`${url}${endpoint}`).then(Response => Response.json())
     },
-
     post(endpoint, data) {
         return fetch(`${url}${endpoint}`,
             {
@@ -14,6 +12,18 @@ export const ApiService = {
             })
 
             .then(Response => Response.json())
+            .then(function(json){
+                return {
+                    name: json.name,
+                    price: json.price,
+                    uri: json.uri,
+                    options: json.options,
+                    id: json.id
+                }
+              }).catch(function(error) {
+                console.log('There has been a problem with your fetch operation: ' + error.message);
+                  throw error;
+                });
     },
 
     delete(endpoint, data) {

@@ -10,9 +10,9 @@ const theme = {
     ...DefaultTheme,
     colors: {
         ...DefaultTheme.colors,
-        primary: '#E83D30',
-        secondary: '#F14933',
-        tertiary: '#FE5E37',
+        primary: '#3C6578',
+        secondary: '#96B6C5',
+        tertiary: '#7CD0F7',
     },
 };
 
